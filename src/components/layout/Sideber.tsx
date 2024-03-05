@@ -13,7 +13,7 @@ const userRole = {
 };
 
 const Sideber = () => {
-  const role = "student";
+  const role = "admin";
   let sideberItems;
 
   switch (role) {
