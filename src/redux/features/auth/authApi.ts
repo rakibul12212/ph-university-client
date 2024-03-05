@@ -1,6 +1,6 @@
-import { bassApi } from "../../api/baseApi";
+import { baseApi } from "../../api/baseApi";
 
- const authApi = bassApi.injectEndpoints({
+ const authApi = baseApi.injectEndpoints({
     endpoints:(builder)=>({
         login:builder.mutation({
             query:(userInfo)=>({
