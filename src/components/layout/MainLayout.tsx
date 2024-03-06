@@ -1,22 +1,22 @@
-import { Layout, Menu, MenuProps } from "antd";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { createElement } from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import { adminPaths, adminSidebarItems } from "../../routes/admin.routes";
-import { sideberItemsGenerator } from "../../utils/sideberItemsGenerator";
+import { Button, Layout } from "antd";
 import Sideber from "./Sideber";
-const { Header, Content, Footer, Sider } = Layout;
+import { useAppDispatch } from "../../redux/hooks";
+import { logout } from "../../redux/features/auth/authSlice";
+import { Outlet } from "react-router-dom";
+const { Header, Content } = Layout;
 
 const MainLayout = () => {
+  const dispatch = useAppDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <Layout style={{ height: "100vh" }}>
       <Sideber></Sideber>
       <Layout>
-        <Header style={{ padding: 0 }} />
+        <Header>
+          <Button onClick={handleLogout}>logout</Button>
+        </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
